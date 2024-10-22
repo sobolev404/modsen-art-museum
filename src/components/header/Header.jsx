@@ -2,7 +2,7 @@ import homeIcon from "../../assets/icons/home.svg";
 import favIcon from "../../assets/icons/fav.svg";
 import logo from "../../assets/icons/museum-logo 2.svg";
 import styles from "./Header.module.css";
-import Burger from "../UI/Burger";
+import Burger from "../UI/burger/Burger";
 import { useState } from "react";
 
 export default function Header() {

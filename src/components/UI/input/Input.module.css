@@ -1,0 +1,17 @@
+.inputContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.input {
+  width: 762px;
+  height: 64px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.searchBtn{
+    position: absolute;
+    right: 16px;
+}

@@ -1,0 +1,93 @@
+@import url("https://fonts.cdnfonts.com/css/lexend-deca");
+
+.artAndPag {
+  display: flex;
+  flex-direction: column;
+}
+
+.artContainer {
+  display: flex;
+  column-gap: 59.5px;
+  margin-bottom: 94px;
+}
+
+.artCard {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+}
+
+.artDesc {
+  position: absolute;
+  bottom: -66px;
+  padding: 17px 24px;
+  background: #ffffff;
+  border: 1px solid #f0f1f1;
+  display: flex;
+  width: 334px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.artDescLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.artTitle {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 17.54px;
+  font-weight: 500;
+  line-height: 26.32px;
+  letter-spacing: -0.03em;
+  text-align: left;
+  color: #393939;
+}
+
+.artAuthor {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 15.35px;
+  font-weight: 400;
+  line-height: 26.32px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #e0a449;
+}
+
+.artPrivacy {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 15.35px;
+  font-weight: 700;
+  line-height: 26.32px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #393939;
+}
+
+.favContainer {
+  width: 59px;
+  height: 59px;
+  padding: 17.54px;
+  border-radius: 35.09px;
+  background: #fbd7b24d;
+}
+
+.pagination {
+  display: flex;
+  align-self: flex-end;
+  margin-bottom: 120px;
+}
+
+.page {
+  list-style: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 23px;
+  background-color:#F17900;
+  text-align: center;  
+}
