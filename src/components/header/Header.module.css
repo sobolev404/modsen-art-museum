@@ -1,0 +1,44 @@
+.header{
+    background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
+    height: 127px;
+    padding: 32px 0;
+}
+
+.header__container{
+    margin: 0 auto;
+    max-width: 1280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo{
+    display: flex;
+}
+
+.header__logo_icon{
+    display: flex;
+    flex-direction: column;
+    row-gap: 11px;
+}
+
+.logo_icon_mid{
+    display: flex;
+    justify-content: center;
+    column-gap: 11px;
+}
+
+.header__logo span{
+    align-self: flex-end;
+    
+}
+
+.header__nav_list{
+    display: flex;
+    column-gap: 16px;
+}
+
+.header__nav_list li{
+    list-style: none;
+    display: flex;
+}
