@@ -1,6 +1,7 @@
 @import url("https://fonts.cdnfonts.com/css/lexend-deca");
 
 .artAndPag {
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
 }
@@ -65,18 +66,9 @@
   color: #393939;
 }
 
-.favContainer {
-  width: 59px;
-  height: 59px;
-  padding: 17.54px;
-  border-radius: 35.09px;
-  background: #fbd7b24d;
-}
-
 .pagination {
   display: flex;
   align-self: flex-end;
-  margin-bottom: 120px;
 }
 
 .page {

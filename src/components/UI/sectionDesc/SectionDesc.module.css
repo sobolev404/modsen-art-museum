@@ -1,0 +1,16 @@
+.descTop {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color:#E0A449;
+  }
+  
+  .descBot {
+    font-family: "Lexend Deca", sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: left;
+  }

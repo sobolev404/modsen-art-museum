@@ -1,6 +1,7 @@
 import styles from "./ArtImg.module.css";
 import img1 from "../../assets/img/img1.svg";
 import favIcon from "../../assets/icons/fav.svg";
+import FavIcon from "../UI/favIcon/FavIcon";
 export default function ArtImg() {
   return (
     <div className={styles.artAndPag}>
@@ -13,9 +14,7 @@ export default function ArtImg() {
             <span className={styles.artAuthor}>Giovanni Britto</span>
             <span className={styles.artPrivacy}>Public</span>
           </div>
-          <div className={styles.favContainer}>
-            <img src={favIcon} alt="" />
-          </div>
+          <FavIcon></FavIcon>
         </div>
       </li>
       <li className={styles.artCard}>
@@ -26,9 +25,7 @@ export default function ArtImg() {
             <span className={styles.artAuthor}>Giovanni Britto</span>
             <span className={styles.artPrivacy}>Public</span>
           </div>
-          <div className={styles.favContainer}>
-            <img src={favIcon} alt="" />
-          </div>
+          <FavIcon></FavIcon>
         </div>
       </li>
       <li className={styles.artCard}>
@@ -39,9 +36,7 @@ export default function ArtImg() {
             <span className={styles.artAuthor}>Giovanni Britto</span>
             <span className={styles.artPrivacy}>Public</span>
           </div>
-          <div className={styles.favContainer}>
-            <img src={favIcon} alt="" />
-          </div>
+          <FavIcon></FavIcon>
         </div>
       </li>
     </ul>
