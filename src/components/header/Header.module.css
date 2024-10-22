@@ -1,44 +1,91 @@
-.header{
-    background: linear-gradient(90deg, #343333 38.05%, #484848 69.22%, #282828 98.98%);
-    height: 127px;
-    padding: 32px 0;
+@import url("https://fonts.cdnfonts.com/css/inter");
+.header {
+  background: linear-gradient(
+    90deg,
+    #343333 38.05%,
+    #484848 69.22%,
+    #282828 98.98%
+  );
+  height: 127px;
+  padding: 32px 30px;
 }
 
-.header__container{
-    margin: 0 auto;
-    max-width: 1280px;
-    display: flex;
-    justify-content: space-between;
+.headerContainer {
+  margin: 0 auto;
+  max-width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navigation {
+  display: flex;
+  column-gap: 16px;
+}
+
+.navLink {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.navLink a {
+  color: white;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+}
+
+@media screen and (min-width: 767px) {
+  .burger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navigation {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 320px;
+    flex-direction: column;
     align-items: center;
-}
+    background: #292929;
+    height: 100vh;
+    justify-content: center;
+    row-gap: 40px;
+    transition: right 0.5s ease 0s;
+    overflow: auto;
+    z-index: 2;
+  }
 
-.header__logo{
-    display: flex;
-}
+  .navigation.active{
+    right: 0;
+  }
 
-.header__logo_icon{
+  .burger {
+    position: relative;
     display: flex;
     flex-direction: column;
-    row-gap: 11px;
-}
+    row-gap: 9px;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.5s ease 0s;
+  }
 
-.logo_icon_mid{
-    display: flex;
-    justify-content: center;
-    column-gap: 11px;
-}
+  .burger.active {
+    transform: rotate(90deg);
+  }
 
-.header__logo span{
-    align-self: flex-end;
-    
-}
-
-.header__nav_list{
-    display: flex;
-    column-gap: 16px;
-}
-
-.header__nav_list li{
-    list-style: none;
-    display: flex;
+  .burger span {
+    width: 30px;
+    height: 0px;
+    top: 12px;
+    gap: 0px;
+    border: 1px solid #E0A449;
+  }
 }
