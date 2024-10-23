@@ -5,28 +5,25 @@ import FavIcon from "../UI/favIcon/FavIcon";
 import { useState } from "react";
 import { useEffect } from "react";
 import Loader from "../UI/loader/Loader";
+import ArtService from "../../API/ArtService";
+import useFetching from "../../hooks/useFetching";
 export default function ArtImg() {
   const [arts, setArts] = useState([]);
-  const [isArtsLoading, setIsArtsLoading] = useState(false);
+
+  const [fetchArts,isArtsLoading,artsError] = useFetching(async () => {
+    const artArray = await ArtService.getAll();
+    setArts(artArray);
+  });
 
   useEffect(() => {
-    async function fetchArts() {
-      setIsArtsLoading(true);
-      const response = await fetch(
-        "https://api.artic.edu/api/v1/artworks?page=1&limit=3&fields=id,title,image_id,is_public_domain,artist_title"
-      );
-      const data = await response.json();
-      const artArray = data.data;
-      setArts(artArray);
-      setIsArtsLoading(false);
-    }
-    fetchArts();
+    fetchArts()
   }, []);
 
   return (
     <div className={styles.artAndPag}>
       <ul className={styles.artContainer}>
-        {isArtsLoading ? (
+        {artsError && <h1>Error: {artsError}</h1>}
+        {(isArtsLoading && !artsError) ? (
           <Loader></Loader>
         ) : (
           arts.map((art) => (
@@ -49,7 +46,7 @@ export default function ArtImg() {
           ))
         )}
       </ul>
-      {!isArtsLoading && (
+      {(!isArtsLoading && !artsError) && (
         <ul className={styles.pagination}>
           <li className={styles.page}>1</li>
           <li className={styles.page}>2</li>
