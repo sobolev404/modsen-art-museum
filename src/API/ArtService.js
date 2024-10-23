@@ -13,4 +13,11 @@ export default class ArtService {
     const data = await response.json();
     return data.data;
   }
+  static async getBySearchQuery(query) {
+    const response = await fetch(
+      `https://api.artic.edu/api/v1/artworks/search?q=${query}&page=1&limit=9&fields=id,title,image_id,is_public_domain,artist_title`
+    );
+    const data = await response.json();
+    return data.data;
+  }
 }
