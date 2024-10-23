@@ -3,6 +3,8 @@
     align-items: center;
     position: relative;
     margin-bottom: 120px;
+    width: 80%;
+    max-width: 762px;
 }
 
 .input {
@@ -15,4 +17,8 @@
 .searchBtn{
     position: absolute;
     right: 16px;
+}
+
+@media screen and (max-width: 1280px) {
+  
 }

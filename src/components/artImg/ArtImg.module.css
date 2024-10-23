@@ -10,6 +10,7 @@
   display: flex;
   column-gap: 59.5px;
   margin-bottom: 94px;
+  justify-content: center;
 }
 
 .artCard {
@@ -17,6 +18,11 @@
   flex-direction: column;
   position: relative;
   align-items: center;
+}
+
+.artImg{
+  width: 400px;
+  height: auto;
 }
 
 .artDesc {
@@ -82,4 +88,12 @@
   line-height: 23px;
   background-color:#F17900;
   text-align: center;  
+}
+
+
+@media screen and (max-width: 1280px) {
+  .artContainer {
+    flex-direction: column;
+    row-gap: 90px;
+  }
 }
