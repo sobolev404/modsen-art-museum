@@ -1,6 +1,4 @@
 import styles from "./ArtImg.module.css";
-import img1 from "../../assets/img/img1.svg";
-import favIcon from "../../assets/icons/fav.svg";
 import FavIcon from "../UI/favIcon/FavIcon";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -9,28 +7,31 @@ import ArtService from "../../API/ArtService";
 import useFetching from "../../hooks/useFetching";
 export default function ArtImg() {
   const [arts, setArts] = useState([]);
+  const [page, setPage] = useState(1);
 
-  const [fetchArts,isArtsLoading,artsError] = useFetching(async () => {
-    const artArray = await ArtService.getAll();
+  const pages = [1, 2, 3, 4, 5];
+
+  const [fetchArts, isArtsLoading, artsError] = useFetching(async () => {
+    const artArray = await ArtService.getAll(page);
     setArts(artArray);
   });
 
   useEffect(() => {
-    fetchArts()
-  }, []);
+    fetchArts();
+  }, [page]);
 
   return (
     <div className={styles.artAndPag}>
       <ul className={styles.artContainer}>
         {artsError && <h1>Error: {artsError}</h1>}
-        {(isArtsLoading && !artsError) ? (
+        {isArtsLoading && !artsError ? (
           <Loader></Loader>
         ) : (
           arts.map((art) => (
             <li key={art.id} className={styles.artCard}>
               <img
                 className={styles.artImg}
-                src={`https://www.artic.edu/iiif/2/${art.image_id}/full/843,/0/default.jpg`}
+                src={`https://www.artic.edu/iiif/2/${art.image_id}/full/400,400/0/default.jpg`}
               ></img>
               <div className={styles.artDesc}>
                 <div className={styles.artDescLeft}>
@@ -46,12 +47,13 @@ export default function ArtImg() {
           ))
         )}
       </ul>
-      {(!isArtsLoading && !artsError) && (
+      {!isArtsLoading && !artsError && (
         <ul className={styles.pagination}>
-          <li className={styles.page}>1</li>
-          <li className={styles.page}>2</li>
-          <li className={styles.page}>3</li>
-          <li className={styles.page}>4</li>
+          {pages.map((item) => (
+            <li onClick={()=>setPage(item)} key={item} className={`${styles.page} ${page==item ? styles.pageActive : ''}`}>
+              {item}
+            </li>
+          ))}
         </ul>
       )}
     </div>

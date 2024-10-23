@@ -1,10 +1,10 @@
 import styles from './ArtTextDesc.module.css'
-export default function ArtTextDesc(){
+export default function ArtTextDesc({title,author,privacy}){
     return (
         <div className={styles.artTextDesc}>
-            <span className={styles.artTitle}>Charles V, bust length...</span>
-            <span className={styles.artAuthor}>Giovanni Britto</span>
-            <span className={styles.artPrivacy}>Public</span>
+            <span className={styles.artTitle}>{title}</span>
+            <span className={styles.artAuthor}>{author}</span>
+            <span className={styles.artPrivacy}>{privacy ? "Public" : "Not Public"}</span>
           </div>
     )
 }
