@@ -4,6 +4,7 @@ import logo from "../../assets/icons/museum-logo 2.svg";
 import styles from "./Header.module.css";
 import Burger from "../UI/burger/Burger";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
 
@@ -24,11 +25,11 @@ export default function Header() {
           <ul className={`${styles.navigation} ${menuActive ? styles.active : ''}`}>
             <li className={styles.navLink}>
               <img src={homeIcon}></img>
-              <a href="#">Home</a>
+              <Link to={"/"}>Home</Link>
             </li>
             <li className={styles.navLink}>
               <img src={favIcon}></img>
-              <a href="#">Your favourites</a>
+              <Link to={"/favourites"}>Your favourites</Link>
             </li>
           </ul>
         </nav>
