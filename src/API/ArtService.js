@@ -24,6 +24,9 @@ export default class ArtService {
     const response = await fetch(
       `https://api.artic.edu/api/v1/artworks/${id}?fields=id,title,image_id,is_public_domain,artist_title,date_start,date_end,dimensions,credit_line,provenance_text,place_of_origin`
     );
+    if (!response.ok) {
+      throw new Error(`Artwork with ID ${id} not found. Status: ${response.status}`);
+    }
     const data = await response.json();
     return data.data;
   }

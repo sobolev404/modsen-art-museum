@@ -19,49 +19,54 @@ export default function ArtDetailInfo() {
     fetchArtById();
     console.log(params.id);
   }, []);
+
   return (
     <div className={styles.artDetailContainer}>
-      {isArtLoading ? (
-        <Loader></Loader>
+      {artError && <h1>Error: {artError}</h1>}
+
+      {isArtLoading && !artError ? (
+        <Loader />
       ) : (
-        <>
-          <div className={styles.imgContainer}>
-            <img
-              className={styles.img}
-              src={`https://www.artic.edu/iiif/2/${art.image_id}/full/500,500/0/default.jpg`}
-              alt="artImg"
-            />
-            <div className={styles.favIcon}>
-              <FavIcon></FavIcon>
+        !artError && (
+          <>
+            <div className={styles.imgContainer}>
+              <img
+                className={styles.img}
+                src={`https://www.artic.edu/iiif/2/${art.image_id}/full/500,500/0/default.jpg`}
+                alt="artImg"
+              />
+              <div className={styles.favIcon}>
+                <FavIcon />
+              </div>
             </div>
-          </div>
-          <div className={styles.artDesc}>
-            <div className={styles.artDescTop}>
-              <span className={styles.artTitle}>{art.title}</span>
-              <span className={styles.artAuthor}>{art.artist_title}</span>
-              <span className={styles.artDuration}>
-                {art.date_start}-{art.date_end}
-              </span>
+            <div className={styles.artDesc}>
+              <div className={styles.artDescTop}>
+                <span className={styles.artTitle}>{art.title}</span>
+                <span className={styles.artAuthor}>{art.artist_title}</span>
+                <span className={styles.artDuration}>
+                  {art.date_start}-{art.date_end}
+                </span>
+              </div>
+              <div className={styles.artDescBot}>
+                <span className={styles.overview}>Overview</span>
+                <ul className={styles.overList}>
+                  {[
+                    ["Artist nationality: ", art.place_of_origin],
+                    ["Dimensions Sheet: ", art.dimensions],
+                    ["Credit Line: ", art.credit_line],
+                    ["Repository: ", art.provenance_text],
+                    ["", art.is_public_domain ? "Public" : "Not Public"],
+                  ].map((item) => (
+                    <li key={item[0]} className={styles.overItem}>
+                      <span className={styles.overItemYellow}>{item[0]}</span>
+                      {item[1]}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <div className={styles.artDescBot}>
-              <span className={styles.overview}>Overview</span>
-              <ul className={styles.overList}>
-                {[
-                  ["Artist nationality: ", art.place_of_origin],
-                  ["Dimensions Sheet: ", art.dimensions],
-                  ["Credit Line: ", art.credit_line],
-                  ["Repositoriy: ", art.provenance_text],
-                  ["", art.is_public_domain ? "Public" : "Not Public"],
-                ].map((item) => (
-                  <li className={styles.overItem}>
-                    <span className={styles.overItemYellow}>{item[0]}</span>
-                    {item[1]}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </>
+          </>
+        )
       )}
     </div>
   );
