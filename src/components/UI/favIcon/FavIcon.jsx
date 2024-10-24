@@ -1,8 +1,8 @@
 import favIcon from '../../../assets/icons/fav.svg'
 import styles from './FavIcon.module.css'
-export default function FavIcon() {
+export default function FavIcon({onClick,isFav}) {
   return (
-    <div className={styles.favContainer}>
+    <div onClick={onClick} className={isFav ? styles.favContainerActive : styles.favContainer}>
       <img src={favIcon} alt="" />
     </div>
   );

@@ -1,8 +1,16 @@
 .favContainer {
-    width: 59px;
-    height: 59px;
-    padding: 17.54px;
-    border-radius: 35.09px;
-    background: #F9F9F9;
-    ;
-  }
+  width: 59px;
+  height: 59px;
+  padding: 17.54px;
+  border-radius: 35.09px;
+  background: #f9f9f9;
+}
+
+.favContainerActive {
+  width: 59px;
+  height: 59px;
+  padding: 17.54px;
+  border-radius: 35.09px;
+  background: #FBD7B24D;
+
+}

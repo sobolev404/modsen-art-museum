@@ -7,6 +7,7 @@ import styles from "./ArtDetailInfo.module.css";
 import FavIcon from "../UI/favIcon/FavIcon";
 
 export default function ArtDetailInfo() {
+  const [isFav,setIsFav] = useState(false)
   const params = useParams();
   const [art, setArt] = useState({});
 
@@ -14,6 +15,29 @@ export default function ArtDetailInfo() {
     const artArray = await ArtService.getById(params.id);
     setArt(artArray);
   });
+
+  function addToFavourite(e) {
+    e.stopPropagation();
+    const favList = JSON.parse(localStorage.getItem('favList')) || [];
+    const itemIndex = favList.findIndex(favItem => favItem.id === art.id);
+    if (itemIndex !== -1) {
+      const updatedFavList = favList.filter(favItem => favItem.id !== art.id);
+      localStorage.setItem('favList', JSON.stringify(updatedFavList));
+      setIsFav(false);
+      console.log('removed from localStorage');
+    } else {
+      localStorage.setItem('favList', JSON.stringify([...favList, art]));
+      setIsFav(true);
+      console.log('added to localStorage');
+    }
+
+  }
+
+  useEffect(() => {
+    const favList = JSON.parse(localStorage.getItem('favList')) || [];
+    const isFavourite = favList.some(favItem => favItem.id === art.id);
+    setIsFav(isFavourite);
+  }, [art]);
 
   useEffect(() => {
     fetchArtById();
@@ -36,7 +60,7 @@ export default function ArtDetailInfo() {
                 alt="artImg"
               />
               <div className={styles.favIcon}>
-                <FavIcon />
+                <FavIcon isFav={isFav} onClick={addToFavourite}/>
               </div>
             </div>
             <div className={styles.artDesc}>
