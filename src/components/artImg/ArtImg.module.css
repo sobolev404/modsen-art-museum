@@ -24,7 +24,7 @@
   height: auto;
 }
 
-.artDesc {
+.descAndFavContainer {
   position: absolute;
   bottom: -66px;
   padding: 17px 24px;
@@ -34,41 +34,6 @@
   width: 334px;
   align-items: center;
   justify-content: space-between;
-}
-
-.artDescLeft {
-  display: flex;
-  flex-direction: column;
-}
-
-.artTitle {
-  font-family: "Lexend Deca", sans-serif;
-  font-size: 17.54px;
-  font-weight: 500;
-  line-height: 26.32px;
-  letter-spacing: -0.03em;
-  text-align: left;
-  color: #393939;
-}
-
-.artAuthor {
-  font-family: "Lexend Deca", sans-serif;
-  font-size: 15.35px;
-  font-weight: 400;
-  line-height: 26.32px;
-  letter-spacing: -0.01em;
-  text-align: left;
-  color: #e0a449;
-}
-
-.artPrivacy {
-  font-family: "Lexend Deca", sans-serif;
-  font-size: 15.35px;
-  font-weight: 700;
-  line-height: 26.32px;
-  letter-spacing: -0.01em;
-  text-align: left;
-  color: #393939;
 }
 
 .pagination {
