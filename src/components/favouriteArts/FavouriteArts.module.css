@@ -4,9 +4,11 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 0 15px;
 }
 
 .title{
+    margin-top: 40px;
     margin-bottom: 120px;
 }
 
@@ -69,4 +71,26 @@ justify-content: space-between;
   font-weight: 700;
   line-height: 80px;
   color:#F17900;
+}
+
+@media screen and (max-width: 767px){
+  .artCard{
+      width: 380px;
+  }
+
+  .title{
+    margin-bottom: 40px;
+  }
+
+  .titleTop{
+    font-size: 50px;
+  }
+  .titleBotOrange{
+    font-size: 50px;
+  }
+
+  .favList{
+    margin-bottom: 40px;
+  }
+  
 }

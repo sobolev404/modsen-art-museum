@@ -4,6 +4,7 @@
   margin-top: 40px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 100px;
 }
 
 .artContainer {
@@ -43,15 +44,24 @@
 }
 
 .page {
+  cursor: pointer;
   list-style: none;
   width: 30px;
   height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Центрирование текста по вертикали и горизонтали */
   border-radius: 4px;
   font-family: "Lexend Deca", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 23px;
-  text-align: center;  
+  text-align: center; 
+  transition: box-shadow 0.3s ease; /* Плавный переход для box-shadow */
+}
+
+.page:hover:not(.pageActive) {
+  box-shadow: 0 0 0 2px #F17900;
 }
 
 .page.pageActive{
@@ -63,5 +73,12 @@
   .artContainer {
     flex-direction: column;
     row-gap: 90px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .artImg{
+    width: 380px;
+    height: 380px;
   }
 }

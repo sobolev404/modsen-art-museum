@@ -1,0 +1,15 @@
+/* Эффект отдаления изображения при наведении */
+
+.artCardHover{
+    cursor: pointer;
+}
+
+.artCardHover:hover > img {
+  transform: scale(1.05); /* Увеличиваем изображение на 10% */
+  transition: transform 0.3s ease-in-out; /* Плавный переход */
+}
+
+img {
+  transition: transform 0.3s ease-in-out; /* Переход для плавности */
+}
+

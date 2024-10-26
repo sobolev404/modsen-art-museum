@@ -4,6 +4,9 @@
   padding: 17.54px;
   border-radius: 35.09px;
   background: #f9f9f9;
+  outline: 3px solid transparent;
+  cursor: pointer;
+  transition: outline 0.3s;
 }
 
 .favContainerActive {
@@ -12,5 +15,15 @@
   padding: 17.54px;
   border-radius: 35.09px;
   background: #FBD7B24D;
+  cursor: pointer;
+  outline: 3px solid transparent;
+  transition: outline 0.3s;
+}
 
+.favContainer:hover{
+  outline-color: #F17900;
+}
+
+.favContainerActive:hover{
+  outline-color: gray;
 }

@@ -17,6 +17,7 @@
 .searchBtn{
     position: absolute;
     right: 16px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1280px) {

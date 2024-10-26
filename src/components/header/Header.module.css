@@ -23,6 +23,27 @@
   column-gap: 16px;
 }
 
+
+.link {
+  text-decoration: none;
+  position: relative;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; 
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
 .navLink {
   list-style: none;
   display: flex;
@@ -30,7 +51,8 @@
   column-gap: 4px;
 }
 
-.navLink a {
+
+.navLink span {
   color: white;
   font-family: "Inter", sans-serif;
   text-decoration: none;
@@ -65,6 +87,10 @@
 
   .navigation.active{
     right: 0;
+  }
+
+  .navLink span{
+    font-size: 30px;
   }
 
   .burger {

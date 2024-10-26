@@ -106,14 +106,27 @@
     align-items: center;
     padding: 60px 30px;
   }
+
+  .artDesc{
+    align-self: flex-start;
+  }
+
+  .artDescTop{
+    margin-bottom: 20px;
+  }
+
+  .img {
+    margin-bottom: 20px;
+  }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 767px) {
   .artDetailContainer {
-    padding: 30px;
+    padding: 15px;
   }
   .img {
-    width: 350px;
-    height: 350px;
+    width: 380px;
+    height: 380px;
+    margin-bottom: 20px;
   }
 }
