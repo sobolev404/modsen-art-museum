@@ -3,20 +3,27 @@ import iconTitle from "@assets/icons/iconTitle.svg";
 import SectionDesc from "@UI/sectionDesc/SectionDesc";
 import ArtCard from "@components/artCard/ArtCard";
 import { useEffect, useState } from "react";
-export default function FavouriteArts() {
 
-  const [favArray,setFavArray]=useState([])
+interface ArtItem {
+  id: number;
+  image_id: string;
+  title: string;
+  artist_title: string;
+  is_public_domain: boolean;
+}
+
+export default function FavouriteArts() {
+  const [favArray, setFavArray] = useState<ArtItem[]>([]);
 
   const updateFavArray = () => {
-    setFavArray(JSON.parse(localStorage.getItem("favList")) || []);
+    const storedFavList = localStorage.getItem("favList");
+    setFavArray(storedFavList ? JSON.parse(storedFavList) : []);
   };
 
   useEffect(() => {
-    // Инициализация избранных элементов при монтировании компонента
     updateFavArray();
   }, []);
 
-  
   return (
     <div className={styles.favSection}>
       <div className={styles.title}>
@@ -26,9 +33,15 @@ export default function FavouriteArts() {
           <span className={styles.titleBotOrange}>Favourites</span>
         </div>
       </div>
-      <SectionDesc topText={'Saved by you'} botText={'Your favorites list'}></SectionDesc>
+      <SectionDesc topText={'Saved by you'} botText={'Your favorites list'} />
       <ul className={styles.favList}>
-        {favArray.length!==0 ? favArray.map((item)=><ArtCard onFavUpdate={updateFavArray} key={item.id} item={item} styles={styles}></ArtCard>): <span className={styles.emptyFav}>Your favorites list is currently empty.</span>}
+        {favArray.length !== 0 ? (
+          favArray.map((item) => (
+            <ArtCard key={item.id} item={item} styles={styles} onFavUpdate={updateFavArray} />
+          ))
+        ) : (
+          <span className={styles.emptyFav}>Your favorites list is currently empty.</span>
+        )}
       </ul>
     </div>
   );

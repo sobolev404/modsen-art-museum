@@ -7,13 +7,12 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  const [menuActive, setMenuActive] = useState(false);
-
-  const navRef = useRef(null);
+  const [menuActive, setMenuActive] = useState<boolean>(false);
+  const navRef = useRef<HTMLUListElement | null>(null); 
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (navRef.current && !navRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setMenuActive(false);
         document.body.classList.remove("_lock");
       }
@@ -31,7 +30,7 @@ export default function Header() {
       <div className={styles.headerContainer}>
         <Link to={"/"}>
           <div className={styles.logoContainer}>
-            <img src={logo} alt="" />
+            <img src={logo} alt="Museum Logo" />
           </div>
         </Link>
 
@@ -39,10 +38,10 @@ export default function Header() {
           <Burger
             className={`${styles.burger} ${menuActive ? styles.active : ""}`}
             onClick={() => {
-              setMenuActive(!menuActive);
+              setMenuActive((prev) => !prev);
               document.body.classList.toggle("_lock");
             }}
-          ></Burger>
+          />
           <ul
             className={`${styles.navigation} ${
               menuActive ? styles.active : ""
@@ -50,14 +49,14 @@ export default function Header() {
           >
             <Link className={styles.link} to={"/"}>
               <li className={styles.navLink}>
-                <img src={homeIcon}></img>
-                <span to={"/"}>Home</span>
+                <img src={homeIcon} alt="Home" />
+                <span>Home</span>
               </li>
             </Link>
 
             <Link className={styles.link} to={"/favourites"}>
               <li className={styles.navLink}>
-                <img src={favIcon}></img>
+                <img src={favIcon} alt="Your Favourites" />
                 <span className={styles.linkText}>Your favourites</span>
               </li>
             </Link>

@@ -6,33 +6,41 @@ import ArtService from "@api/ArtService";
 import ArtCard from "@components/artCard/ArtCard";
 import Loader from "@UI/loader/Loader";
 
+interface ArtItem {
+  id: number;
+  image_id: string;
+  title: string;
+  artist_title: string;
+  is_public_domain: boolean;
+}
+
 export default function OtherArts() {
-  const [arts, setArts] = useState([]);
+  const [arts, setArts] = useState<ArtItem[]>([]);
 
   const [fetchArts, isArtsLoading, artsError] = useFetching(async () => {
-    const artArray = await ArtService.getOthers();
+    const artArray: ArtItem[] = await ArtService.getOthers();
     setArts(artArray);
   });
 
   useEffect(() => {
     fetchArts();
-  }, []);
+  }, []); 
 
   return (
     <div className={styles.otherArtsContainer}>
       <SectionDesc
         topText={"Here some more"}
         botText={"Other works for you"}
-      ></SectionDesc>
+      />
 
       <ul className={styles.artList}>
         {artsError && <h1>Error: {artsError}</h1>}
 
-        {isArtsLoading && !artsError ? (
-          <Loader></Loader>
+        {isArtsLoading ? (
+          <Loader />
         ) : (
           arts.map((item) => (
-            <ArtCard key={item.id} item={item} styles={styles}></ArtCard>
+            <ArtCard key={item.id} item={item} styles={styles} />
           ))
         )}
       </ul>

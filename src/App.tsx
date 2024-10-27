@@ -4,14 +4,14 @@ import Main from "@pages/Main";
 import "@styles/App.css";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path="/" element={<Main/>}></Route>
-          <Route path="/detail/:id" element={<Detail/>}></Route>
-          <Route path="/favourites" element={<Favourites/>}></Route>
+          <Route path="/" element={<Main />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/favourites" element={<Favourites />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
