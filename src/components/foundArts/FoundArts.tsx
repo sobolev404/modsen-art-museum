@@ -18,7 +18,7 @@ interface ArtItem {
 export default function FoundArts() {
   const [arts, setArts] = useState<ArtItem[]>([]);
   const searchContext = useContext(SearchContext);
-  
+
   if (!searchContext) {
     throw new Error("FoundArts must be used within a SearchProvider");
   }
@@ -26,11 +26,11 @@ export default function FoundArts() {
   const { query, setQuery } = searchContext;
 
   const debounceQuery = useDebounce(query, 1000);
-  
+
   const sortOptions: [string, keyof ArtItem][] = [
-    ['title', "title"],
-    ['author', "artist_title"],
-    ['privacy', 'is_public_domain']
+    ["title", "title"],
+    ["author", "artist_title"],
+    ["privacy", "is_public_domain"],
   ];
 
   const handleSortOption = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -41,26 +41,27 @@ export default function FoundArts() {
     const sortedArts = [...arr].sort((a, b) => {
       // Проверяем, являются ли оба значения строками
       if (typeof a[opt] === "string" && typeof b[opt] === "string") {
-        return a[opt].localeCompare(b[opt]);
+        return (a[opt] as string).localeCompare(b[opt] as string);
       }
-      // Если это не строки, сравниваем как числа или булевы значения
+      // Если это не строки, сравниваем как булевы значения
       if (typeof a[opt] === "boolean" && typeof b[opt] === "boolean") {
-        return (a[opt] === b[opt]) ? 0 : (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
+        return a[opt] === b[opt] ? 0 : (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
       }
       // Если одно из значений - число, обрабатываем их
       if (typeof a[opt] === "number" && typeof b[opt] === "number") {
-        return a[opt] - b[opt];
+        return (a[opt] as number) - (b[opt] as number);
       }
       // Обработка случаев, когда типы различаются или одно из значений - null/undefined
       return (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
     });
     setArts(sortedArts);
   };
-  
 
   const [fetchArts, isArtsLoading, artsError] = useFetching(async () => {
     if (debounceQuery.trim()) {
-      const artArray: ArtItem[] = await ArtService.getBySearchQuery(debounceQuery);
+      const artArray: ArtItem[] = await ArtService.getBySearchQuery(
+        debounceQuery
+      );
       setArts(artArray);
     }
   });
@@ -87,10 +88,20 @@ export default function FoundArts() {
             <h2>No results found for your query.</h2>
           )}
           <div className={styles.sortContainer}>
-            <select className={styles.sortSelect} defaultValue='' onChange={handleSortOption}>
-              <option className={styles.sortOption} disabled value=''>Sort by:</option>
+            <select
+              className={styles.sortSelect}
+              defaultValue=""
+              onChange={handleSortOption}
+            >
+              <option className={styles.sortOption} disabled value="">
+                Sort by:
+              </option>
               {sortOptions.map((item) => (
-                <option className={styles.sortOption} key={item[1]} value={item[1]}>
+                <option
+                  className={styles.sortOption}
+                  key={item[1]}
+                  value={item[1]}
+                >
                   {item[0]}
                 </option>
               ))}
