@@ -1,4 +1,4 @@
-import favIcon from '../../../assets/icons/fav.svg'
+import favIcon from '@assets/icons/fav.svg'
 import styles from './FavIcon.module.css'
 export default function FavIcon({onClick,isFav}) {
   return (

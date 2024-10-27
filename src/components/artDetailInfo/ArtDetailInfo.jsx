@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import useFetching from "../../hooks/useFetching";
-import ArtService from "../../API/ArtService";
-import Loader from "../UI/loader/Loader";
+import useFetching from "@hooks/useFetching";
+import ArtService from "@api/ArtService";
+import Loader from "@UI/loader/Loader";
 import { useParams } from "react-router-dom";
 import styles from "./ArtDetailInfo.module.css";
-import FavIcon from "../UI/favIcon/FavIcon";
+import FavIcon from "@UI/favIcon/FavIcon";
 
 export default function ArtDetailInfo() {
   const [isFav,setIsFav] = useState(false)

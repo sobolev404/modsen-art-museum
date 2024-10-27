@@ -1,7 +1,7 @@
-import FoundArts from "../foundArts/FoundArts";
-import Input from "../UI/input/Input";
+import FoundArts from "@components/foundArts/FoundArts";
+import Input from "@UI/input/Input";
 import styles from "./SearchArt.module.css";
-import { SearchProvider } from "../../context/SearchContext";
+import { SearchProvider } from "@context/SearchContext";
 export default function SearchArt() {
   return (
     <SearchProvider>

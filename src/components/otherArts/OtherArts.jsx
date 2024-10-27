@@ -1,10 +1,10 @@
-import SectionDesc from "../UI/sectionDesc/SectionDesc";
+import SectionDesc from "@UI/sectionDesc/SectionDesc";
 import styles from "./OtherArts.module.css";
 import { useEffect, useState } from "react";
-import useFetching from "../../hooks/useFetching";
-import ArtService from "../../API/ArtService";
-import ArtCard from "../artCard/ArtCard";
-import Loader from "../UI/loader/Loader";
+import useFetching from "@hooks/useFetching";
+import ArtService from "@api/ArtService";
+import ArtCard from "@components/artCard/ArtCard";
+import Loader from "@UI/loader/Loader";
 
 export default function OtherArts() {
   const [arts, setArts] = useState([]);

@@ -1,7 +1,7 @@
 import styles from "./FavouriteArts.module.css";
-import iconTitle from "../../assets/icons/iconTitle.svg";
-import SectionDesc from "../UI/sectionDesc/SectionDesc";
-import ArtCard from "../artCard/ArtCard";
+import iconTitle from "@assets/icons/iconTitle.svg";
+import SectionDesc from "@UI/sectionDesc/SectionDesc";
+import ArtCard from "@components/artCard/ArtCard";
 import { useEffect, useState } from "react";
 export default function FavouriteArts() {
 

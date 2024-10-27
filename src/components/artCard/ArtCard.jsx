@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import ArtTextDesc from "../UI/artTextDesc/ArtTextDesc";
-import FavIcon from "../UI/favIcon/FavIcon";
+import ArtTextDesc from "@UI/artTextDesc/ArtTextDesc";
+import FavIcon from "@UI/favIcon/FavIcon";
 import { useEffect, useState } from "react";
 import defStyles from './ArtCard.module.css'
 export default function ArtCard({ item, styles, onFavUpdate }) {

@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import useFetching from "../../hooks/useFetching";
-import ArtService from "../../API/ArtService";
+import useFetching from "@hooks/useFetching";
+import ArtService from "@api/ArtService";
 import styles from "./FoundArts.module.css";
-import { SearchContext } from "../../context/SearchContext";
-import Loader from "../UI/loader/Loader";
-import useDebounce from "../../hooks/useDebounce";
-import ArtCard from "../artCard/ArtCard";
+import { SearchContext } from "@context/SearchContext";
+import Loader from "@UI/loader/Loader";
+import useDebounce from "@hooks/useDebounce";
+import ArtCard from "@components/artCard/ArtCard";
 
 export default function FoundArts() {
   const [arts, setArts] = useState([]);

@@ -1,11 +1,10 @@
 import styles from "./ArtImg.module.css";
-import FavIcon from "../UI/favIcon/FavIcon";
 import { useState } from "react";
 import { useEffect } from "react";
-import Loader from "../UI/loader/Loader";
-import ArtService from "../../API/ArtService";
-import useFetching from "../../hooks/useFetching";
-import ArtCard from "../artCard/ArtCard";
+import Loader from "@UI/loader/Loader";
+import ArtService from "@api/ArtService";
+import useFetching from "@hooks/useFetching";
+import ArtCard from "@components/artCard/ArtCard";
 export default function ArtImg() {
   const [arts, setArts] = useState([]);
   const [page, setPage] = useState(1);
