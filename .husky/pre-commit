@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Выполняем линтинг
+npm run lint
+
+# Выполняем форматирование
+npm run format:fix
