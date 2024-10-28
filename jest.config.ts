@@ -1,6 +1,6 @@
-import type { Config } from "jest";
+import { Config } from "@jest/types";
 
-const config: Config = {
+const config: Config.InitialOptions = {
   moduleNameMapper: {
     "^@components/(.*)$": "<rootDir>/src/components/$1",
     "^@UI/(.*)$": "<rootDir>/src/components/UI/$1",
@@ -12,7 +12,8 @@ const config: Config = {
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
   },
   testEnvironment: "jsdom",
-  setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.tsx"],
+  
 };
 
 export default config;
