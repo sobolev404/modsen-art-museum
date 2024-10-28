@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Detail from "@pages/Detail"; // убедитесь, что путь правильный
+import Detail from "./Detail"; // убедитесь, что путь правильный
 
 // Мокаем дочерние компоненты
-jest.mock("@components/header/Header", () => () => <div>Header</div>);
-jest.mock("@components/artDetailInfo/ArtDetailInfo", () => () => <div>ArtDetailInfo</div>);
-jest.mock("@components/footer/Footer", () => () => <div>Footer</div>);
+jest.mock("../components/header/Header", () => () => <div>Header</div>);
+jest.mock("../components/artDetailInfo/ArtDetailInfo", () => () => <div>ArtDetailInfo</div>);
+jest.mock("../components/footer/Footer", () => () => <div>Footer</div>);
 
 describe("Detail", () => {
     it("должен рендерить Header, ArtDetailInfo и Footer", () => {

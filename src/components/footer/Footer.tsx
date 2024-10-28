@@ -1,6 +1,6 @@
 import styles from './Footer.module.css';
-import museumLogo from '@assets/icons/museum-logo-fot.svg';
-import modsenLogo from '@assets/icons/logo-modsen.svg';
+import museumLogo from '../../assets/icons/museum-logo-fot.svg';
+import modsenLogo from '../../assets/icons/logo-modsen.svg';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {

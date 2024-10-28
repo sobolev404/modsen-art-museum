@@ -1,17 +1,21 @@
-import React from 'react';
+import React from "react";
 
 interface BurgerProps {
-  className?: string; 
+  className?: string;
   onClick: () => void;
 }
 
 const Burger: React.FC<BurgerProps> = ({ className, onClick }) => {
   return (
-    <div className={className} onClick={onClick}>
+    <button
+      className={className}
+      onClick={onClick}
+      style={{ background: "none", border: "none", padding: 0 }}
+    >
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
   );
 };
 

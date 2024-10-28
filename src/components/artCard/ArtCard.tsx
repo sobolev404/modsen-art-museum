@@ -53,7 +53,7 @@ export default function ArtCard({ item, styles, onFavUpdate }: ArtCardProps) {
     <li onClick={() => navigate(`/detail/${item.id}`)} className={`${styles.artCard} ${defStyles.artCardHover}`}>
       <img
         className={styles.artImg}
-        src={`https://www.artic.edu/iiif/2/${item.image_id}/full/400,400/0/default.jpg`}
+        src={`https://www.artic.edu/iiif/2/${item.image_id}/full/387,387/0/default.jpg`}
         alt={item.title || "Art image"}
       />
       <div className={styles.descAndFavContainer}>

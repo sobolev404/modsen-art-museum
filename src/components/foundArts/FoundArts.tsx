@@ -39,23 +39,24 @@ export default function FoundArts() {
 
   const sortArts = (opt: keyof ArtItem, arr: ArtItem[]) => {
     const sortedArts = [...arr].sort((a, b) => {
-      // Проверяем, являются ли оба значения строками
-      if (typeof a[opt] === "string" && typeof b[opt] === "string") {
-        return a[opt].localeCompare(b[opt]);
-      }
-      // Если это не строки, сравниваем как числа или булевы значения
-      if (typeof a[opt] === "boolean" && typeof b[opt] === "boolean") {
-        return (a[opt] === b[opt]) ? 0 : (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
-      }
-      // Если одно из значений - число, обрабатываем их
-      if (typeof a[opt] === "number" && typeof b[opt] === "number") {
-        return a[opt] - b[opt];
-      }
-      // Обработка случаев, когда типы различаются или одно из значений - null/undefined
-      return (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
+        // Проверяем, являются ли оба значения строками
+        if (typeof a[opt] === "string" && typeof b[opt] === "string") {
+            return (a[opt] as string).localeCompare(b[opt] as string);
+        }
+        // Если это не строки, сравниваем как булевы значения
+        if (typeof a[opt] === "boolean" && typeof b[opt] === "boolean") {
+            return (a[opt] === b[opt]) ? 0 : (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
+        }
+        // Если одно из значений - число, обрабатываем их
+        if (typeof a[opt] === "number" && typeof b[opt] === "number") {
+            return (a[opt] as number) - (b[opt] as number);
+        }
+        // Обработка случаев, когда типы различаются или одно из значений - null/undefined
+        return (a[opt] ? 1 : 0) - (b[opt] ? 1 : 0);
     });
     setArts(sortedArts);
-  };
+};
+
   
 
   const [fetchArts, isArtsLoading, artsError] = useFetching(async () => {
