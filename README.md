@@ -1,6 +1,6 @@
-#museum-modsen
+# museum-modsen
 
-##deploy: https://museumfinal.netlify.app/
+## deploy: https://museumfinal.netlify.app/
 
 
 # Getting Started with Create React App
