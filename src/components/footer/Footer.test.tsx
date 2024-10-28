@@ -1,31 +1,31 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom'; // Для поддержки `Link` из `react-router-dom`
 import Footer from './Footer';
+import { BrowserRouter } from 'react-router-dom';
 
-describe('Footer component', () => {
-  it('renders the museum logo with the correct alt text', () => {
+jest.mock('../../assets/icons/museum-logo-fot.svg', () => 'museum-logo-fot');
+jest.mock('../../assets/icons/logo-modsen.svg', () => 'logo-modsen');
+
+describe('Footer Component', () => {
+  beforeEach(() => {
     render(
-      <MemoryRouter>
+      <BrowserRouter>
         <Footer />
-      </MemoryRouter>
+      </BrowserRouter>
     );
-    
+  });
+
+  it('renders the museum logo with the correct alt text', () => {
     const museumLogo = screen.getByAltText('museum logo');
     expect(museumLogo).toBeInTheDocument();
-    expect(museumLogo.getAttribute('src')).toContain('museum-logo-fot.svg');
+    expect(museumLogo.getAttribute('src')).toContain('museum-logo-fot');
   });
 
   it('renders the Modsen logo with the correct alt text and external link', () => {
-    render(
-      <MemoryRouter>
-        <Footer />
-      </MemoryRouter>
-    );
-    
     const modsenLogo = screen.getByAltText('modsen logo');
     expect(modsenLogo).toBeInTheDocument();
-    expect(modsenLogo.getAttribute('src')).toContain('logo-modsen.svg');
-    
+    expect(modsenLogo.getAttribute('src')).toContain('logo-modsen');
+
     const modsenLink = screen.getByRole('link', { name: 'modsen logo' });
     expect(modsenLink).toHaveAttribute('href', 'https://www.modsen-software.com/');
     expect(modsenLink).toHaveAttribute('target', '_blank');

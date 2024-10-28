@@ -10,10 +10,12 @@ const config: Config.InitialOptions = {
     "^@hooks/(.*)$": "<rootDir>/src/hooks/$1",
     "^@context/(.*)$": "<rootDir>/src/context/$1",
     "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy', // Mock для стилей
+    
   },
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.tsx"],
-  
+  preset: 'ts-jest', // добавляет поддержку TypeScript
 };
 
 export default config;
