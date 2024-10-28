@@ -1,22 +1,22 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   background-color: #fafafa;
   min-width: 420px;
 }
 
-.App{
+.App {
   display: flex;
   flex-direction: column;
   height: 100vh;
   justify-content: space-between;
 }
 
-body._lock{
+body._lock {
   overflow: hidden;
 }
 

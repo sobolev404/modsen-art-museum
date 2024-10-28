@@ -14,16 +14,16 @@
   height: 59px;
   padding: 17.54px;
   border-radius: 35.09px;
-  background: #FBD7B24D;
+  background: #fbd7b24d;
   cursor: pointer;
   outline: 3px solid transparent;
   transition: outline 0.3s;
 }
 
-.favContainer:hover{
-  outline-color: #F17900;
+.favContainer:hover {
+  outline-color: #f17900;
 }
 
-.favContainerActive:hover{
+.favContainerActive:hover {
   outline-color: gray;
 }

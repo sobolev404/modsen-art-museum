@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 const reportWebVitals = (onPerfEntry?: (metric: any) => void) => {
   if (onPerfEntry && typeof onPerfEntry === 'function') {
     import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {

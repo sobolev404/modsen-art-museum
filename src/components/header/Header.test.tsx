@@ -24,16 +24,16 @@ describe('Header Component', () => {
   it('renders the navigation links', () => {
     const homeLink = screen.getByText('Home');
     const favLink = screen.getByText('Your favourites');
-    
+
     expect(homeLink).toBeInTheDocument();
     expect(favLink).toBeInTheDocument();
   });
 
   it('closes menu when clicking outside of it', () => {
     const burgerButton = screen.getByRole('button');
-    fireEvent.click(burgerButton); // Открываем меню
+    fireEvent.click(burgerButton);
 
-    fireEvent.click(document); // Кликаем вне меню
+    fireEvent.click(document);
     expect(document.body.classList.contains('_lock')).toBe(false);
     expect(screen.getByRole('navigation')).not.toHaveClass('active');
   });

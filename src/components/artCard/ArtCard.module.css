@@ -1,7 +1,7 @@
 /* Эффект отдаления изображения при наведении */
 
-.artCardHover{
-    cursor: pointer;
+.artCardHover {
+  cursor: pointer;
 }
 
 .artCardHover:hover > img {
@@ -12,4 +12,3 @@
 img {
   transition: transform 0.3s ease-in-out; /* Переход для плавности */
 }
-

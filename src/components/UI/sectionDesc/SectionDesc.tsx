@@ -1,8 +1,8 @@
 import styles from './SectionDesc.module.css';
 
 interface SectionDescProps {
-  topText: string; 
-  botText: string; 
+  topText: string;
+  botText: string;
 }
 
 export default function SectionDesc({ topText, botText }: SectionDescProps) {

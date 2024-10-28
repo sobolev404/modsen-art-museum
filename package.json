@@ -11,6 +11,9 @@
     "@types/node": "^22.8.1",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint-config-react-app": "^7.0.1",
     "jest": "^29.7.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -24,7 +27,11 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +52,12 @@
     ]
   },
   "devDependencies": {
-    "jest-environment-jsdom": "^29.7.0"
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.6",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.3.3"
   }
 }

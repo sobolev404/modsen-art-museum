@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/lexend-deca");
+@import url('https://fonts.cdnfonts.com/css/lexend-deca');
 
 .artAndPag {
   margin-top: 40px;
@@ -21,7 +21,7 @@
   align-items: center;
 }
 
-.artImg{
+.artImg {
   height: auto;
 }
 
@@ -52,22 +52,21 @@
   align-items: center;
   justify-content: center; /* Центрирование текста по вертикали и горизонтали */
   border-radius: 4px;
-  font-family: "Lexend Deca", sans-serif;
+  font-family: 'Lexend Deca', sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 23px;
-  text-align: center; 
+  text-align: center;
   transition: box-shadow 0.3s ease; /* Плавный переход для box-shadow */
 }
 
 .page:hover:not(.pageActive) {
-  box-shadow: 0 0 0 2px #F17900;
+  box-shadow: 0 0 0 2px #f17900;
 }
 
-.page.pageActive{
-  background-color:#F17900;
+.page.pageActive {
+  background-color: #f17900;
 }
-
 
 @media screen and (max-width: 1280px) {
   .artContainer {
@@ -76,8 +75,8 @@
   }
 }
 
-@media screen and (max-width: 767px){
-  .artImg{
+@media screen and (max-width: 767px) {
+  .artImg {
     width: 380px;
     height: 380px;
   }

@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import styles from "./ArtImg.module.css";
-import Loader from "@UI/loader/Loader";
-import ArtService from "@api/ArtService";
-import useFetching from "@hooks/useFetching";
-import ArtCard from "@components/artCard/ArtCard";
+import { useState, useEffect } from 'react';
+import styles from './ArtImg.module.css';
+import Loader from '@UI/loader/Loader';
+import ArtService from '@api/ArtService';
+import useFetching from '@hooks/useFetching';
+import ArtCard from '@components/artCard/ArtCard';
 
 interface ArtItem {
   id: number;

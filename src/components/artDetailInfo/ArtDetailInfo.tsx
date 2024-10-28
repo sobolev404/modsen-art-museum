@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import useFetching from "@hooks/useFetching";
-import ArtService from "@api/ArtService";
-import Loader from "@UI/loader/Loader";
-import { useParams } from "react-router-dom";
-import styles from "./ArtDetailInfo.module.css";
-import FavIcon from "@UI/favIcon/FavIcon";
+import { useEffect, useState } from 'react';
+import useFetching from '@hooks/useFetching';
+import ArtService from '@api/ArtService';
+import Loader from '@UI/loader/Loader';
+import { useParams } from 'react-router-dom';
+import styles from './ArtDetailInfo.module.css';
+import FavIcon from '@UI/favIcon/FavIcon';
 
 interface ArtItem {
   id: number;
@@ -43,25 +43,31 @@ export default function ArtDetailInfo() {
 
   function addToFavourite(e: React.MouseEvent) {
     e.stopPropagation();
-    const favList: ArtItem[] = JSON.parse(localStorage.getItem("favList") || "[]");
+    const favList: ArtItem[] = JSON.parse(
+      localStorage.getItem('favList') || '[]'
+    );
     const itemIndex = favList.findIndex((favItem) => favItem.id === art?.id);
 
     if (itemIndex !== -1) {
-      const updatedFavList = favList.filter((favItem) => favItem.id !== art?.id);
-      localStorage.setItem("favList", JSON.stringify(updatedFavList));
+      const updatedFavList = favList.filter(
+        (favItem) => favItem.id !== art?.id
+      );
+      localStorage.setItem('favList', JSON.stringify(updatedFavList));
       setIsFav(false);
-      console.log("removed from localStorage");
+      console.log('removed from localStorage');
     } else {
       if (art) {
-        localStorage.setItem("favList", JSON.stringify([...favList, art]));
+        localStorage.setItem('favList', JSON.stringify([...favList, art]));
         setIsFav(true);
-        console.log("added to localStorage");
+        console.log('added to localStorage');
       }
     }
   }
 
   useEffect(() => {
-    const favList: ArtItem[] = JSON.parse(localStorage.getItem("favList") || "[]");
+    const favList: ArtItem[] = JSON.parse(
+      localStorage.getItem('favList') || '[]'
+    );
     const isFavourite = favList.some((favItem) => favItem.id === art?.id);
     setIsFav(isFavourite);
   }, [art]);
@@ -77,7 +83,8 @@ export default function ArtDetailInfo() {
       {isArtLoading && !artError ? (
         <Loader />
       ) : (
-        !artError && art && (
+        !artError &&
+        art && (
           <>
             <div className={styles.imgContainer}>
               <img
@@ -101,11 +108,11 @@ export default function ArtDetailInfo() {
                 <span className={styles.overview}>Overview</span>
                 <ul className={styles.overList}>
                   {[
-                    ["Artist nationality: ", art.place_of_origin],
-                    ["Dimensions Sheet: ", art.dimensions],
-                    ["Credit Line: ", art.credit_line],
-                    ["Repository: ", art.provenance_text],
-                    ["", art.is_public_domain ? "Public" : "Not Public"],
+                    ['Artist nationality: ', art.place_of_origin],
+                    ['Dimensions Sheet: ', art.dimensions],
+                    ['Credit Line: ', art.credit_line],
+                    ['Repository: ', art.provenance_text],
+                    ['', art.is_public_domain ? 'Public' : 'Not Public'],
                   ].map((item, index) => (
                     <li key={index} className={styles.overItem}>
                       <span className={styles.overItemYellow}>{item[0]}</span>

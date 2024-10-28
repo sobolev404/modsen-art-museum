@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface BurgerProps {
   className?: string;
@@ -10,7 +10,7 @@ const Burger: React.FC<BurgerProps> = ({ className, onClick }) => {
     <button
       className={className}
       onClick={onClick}
-      style={{ background: "none", border: "none", padding: 0 }}
+      style={{ background: 'none', border: 'none', padding: 0 }}
     >
       <span></span>
       <span></span>

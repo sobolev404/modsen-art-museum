@@ -1,10 +1,10 @@
-import SectionDesc from "@UI/sectionDesc/SectionDesc";
-import styles from "./OtherArts.module.css";
-import { useEffect, useState } from "react";
-import useFetching from "@hooks/useFetching";
-import ArtService from "@api/ArtService";
-import ArtCard from "@components/artCard/ArtCard";
-import Loader from "@UI/loader/Loader";
+import SectionDesc from '@UI/sectionDesc/SectionDesc';
+import styles from './OtherArts.module.css';
+import { useEffect, useState } from 'react';
+import useFetching from '@hooks/useFetching';
+import ArtService from '@api/ArtService';
+import ArtCard from '@components/artCard/ArtCard';
+import Loader from '@UI/loader/Loader';
 
 interface ArtItem {
   id: number;
@@ -24,14 +24,11 @@ export default function OtherArts() {
 
   useEffect(() => {
     fetchArts();
-  }, []); 
+  }, []);
 
   return (
     <div className={styles.otherArtsContainer}>
-      <SectionDesc
-        topText={"Here some more"}
-        botText={"Other works for you"}
-      />
+      <SectionDesc topText={'Here some more'} botText={'Other works for you'} />
 
       <ul className={styles.artList}>
         {artsError && <h1>Error: {artsError}</h1>}

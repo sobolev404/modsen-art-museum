@@ -1,4 +1,4 @@
-@import url("https://fonts.cdnfonts.com/css/inter");
+@import url('https://fonts.cdnfonts.com/css/inter');
 .header {
   background: linear-gradient(
     90deg,
@@ -23,16 +23,15 @@
   column-gap: 16px;
 }
 
-
 .link {
   text-decoration: none;
   position: relative;
 }
 
 .link::after {
-  content: "";
+  content: '';
   position: absolute;
-  bottom: -4px; 
+  bottom: -4px;
   left: 0;
   width: 0;
   height: 1px;
@@ -51,10 +50,9 @@
   column-gap: 4px;
 }
 
-
 .navLink span {
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   text-decoration: none;
   font-size: 16px;
   font-weight: 400;
@@ -85,11 +83,11 @@
     z-index: 2;
   }
 
-  .navigation.active{
+  .navigation.active {
     right: 0;
   }
 
-  .navLink span{
+  .navLink span {
     font-size: 30px;
   }
 
@@ -112,6 +110,6 @@
     height: 0px;
     top: 12px;
     gap: 0px;
-    border: 1px solid #E0A449;
+    border: 1px solid #e0a449;
   }
 }

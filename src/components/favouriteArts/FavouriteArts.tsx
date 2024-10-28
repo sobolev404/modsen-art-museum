@@ -1,8 +1,8 @@
-import styles from "./FavouriteArts.module.css";
-import iconTitle from "@assets/icons/iconTitle.svg";
-import SectionDesc from "@UI/sectionDesc/SectionDesc";
-import ArtCard from "@components/artCard/ArtCard";
-import { useEffect, useState } from "react";
+import styles from './FavouriteArts.module.css';
+import iconTitle from '@assets/icons/iconTitle.svg';
+import SectionDesc from '@UI/sectionDesc/SectionDesc';
+import ArtCard from '@components/artCard/ArtCard';
+import { useEffect, useState } from 'react';
 
 interface ArtItem {
   id: number;
@@ -16,7 +16,7 @@ export default function FavouriteArts() {
   const [favArray, setFavArray] = useState<ArtItem[]>([]);
 
   const updateFavArray = () => {
-    const storedFavList = localStorage.getItem("favList");
+    const storedFavList = localStorage.getItem('favList');
     setFavArray(storedFavList ? JSON.parse(storedFavList) : []);
   };
 
@@ -37,10 +37,17 @@ export default function FavouriteArts() {
       <ul className={styles.favList}>
         {favArray.length !== 0 ? (
           favArray.map((item) => (
-            <ArtCard key={item.id} item={item} styles={styles} onFavUpdate={updateFavArray} />
+            <ArtCard
+              key={item.id}
+              item={item}
+              styles={styles}
+              onFavUpdate={updateFavArray}
+            />
           ))
         ) : (
-          <span className={styles.emptyFav}>Your favorites list is currently empty.</span>
+          <span className={styles.emptyFav}>
+            Your favorites list is currently empty.
+          </span>
         )}
       </ul>
     </div>

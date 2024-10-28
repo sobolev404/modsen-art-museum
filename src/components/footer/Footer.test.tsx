@@ -27,7 +27,10 @@ describe('Footer Component', () => {
     expect(modsenLogo.getAttribute('src')).toContain('logo-modsen');
 
     const modsenLink = screen.getByRole('link', { name: 'modsen logo' });
-    expect(modsenLink).toHaveAttribute('href', 'https://www.modsen-software.com/');
+    expect(modsenLink).toHaveAttribute(
+      'href',
+      'https://www.modsen-software.com/'
+    );
     expect(modsenLink).toHaveAttribute('target', '_blank');
   });
 });
